@@ -1,15 +1,21 @@
-let wfMenu = document.getElementById('wf-menu')
-let menu = document.getElementById('menu-mobile')
-let overlay = document.getElementById('overlay-menu')
+const wfMenu = document.getElementById('wf-menu')
+const menu = document.getElementById('menu-mobile')
+const overlay = document.getElementById('overlay-menu')
+const closeBtn = document.querySelector('.wf-fechar')
 
-wfMenu.addEventListener('click', ()=>{
-    menu.classList.add('abrir-menu')
-})
+if (wfMenu && menu && overlay) {
+  wfMenu.addEventListener('click', () => {
+    menu.classList.add('abrir-menu');
+    document.body.classList.add('menu-open'); // <<< ADICIONA
+  });
 
-menu.addEventListener('click', ()=>{
-    menu.classList.remove('abrir-menu')
-})
-overlay.addEventListener('click', ()=>{
-    menu.classList.remove('abrir-menu')
+  overlay.addEventListener('click', () => {
+    menu.classList.remove('abrir-menu');
+    document.body.classList.remove('menu-open'); // <<< REMOVE
+  });
 
-})
+  menu.addEventListener('click', () => {
+    menu.classList.remove('abrir-menu');
+    document.body.classList.remove('menu-open'); // <<< REMOVE
+  });
+}
